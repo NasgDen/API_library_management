@@ -14,6 +14,7 @@ class BookAdmin(admin.ModelAdmin):
         "date_update"
     )
     list_filter = ("title",)
+    search_fields = ("title",)
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
@@ -26,3 +27,4 @@ class AuthorAdmin(admin.ModelAdmin):
         "date_update"
     )
     list_filter = ("last_name",)
+    search_fields = ("last_name",)

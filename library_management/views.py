@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView
 
 from library_management.models import Book, Author
 from library_management.serializers import BookSerializer, AuthorSerializer
@@ -13,6 +13,20 @@ class BookCreateApiView(CreateAPIView):
 
 class BookListApiView(ListAPIView):
     """ Класс реализует отображение всех книг """
+
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+
+class BookRetrieveAPIView(RetrieveAPIView):
+    """ Класс реализует отображение одной книги """
+
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+
+class BookUpdateApiView(UpdateAPIView):
+    """ Класс реализует изменение данных о книге """
 
     queryset = Book.objects.all()
     serializer_class = BookSerializer
