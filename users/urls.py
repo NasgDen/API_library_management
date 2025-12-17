@@ -1,9 +1,8 @@
 from django.contrib import admin
-from django.urls import path
-from django.urls import include
+from django.urls import include, path
 
 from .apps import UsersConfig
-from .views import UserCreateApiView, UserListApiView, UserRetrieveApiView, UserUpdateApiView, UserDestroyApiView
+from .views import UserCreateApiView, UserDestroyApiView, UserListApiView, UserRetrieveApiView, UserUpdateApiView
 
 app_name = UsersConfig.name
 

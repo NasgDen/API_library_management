@@ -1,13 +1,13 @@
 from django.contrib import admin
-from django.urls import path
-from django.urls import include
-from rest_framework.urls import app_name
+from django.urls import include, path
+
+from library_management.views import (AuthorCreateApiView, AuthorDestroyApiView, AuthorListApiView,
+                                      AuthorRetrieveApiView, AuthorUpdateApiView, BookCreateApiView,
+                                      BookDestroyApiView, BookIssuanceCreateApiView, BookIssuanceDestroyApiView,
+                                      BookIssuanceListApiView, BookIssuanceRetrieveApiView, BookIssuanceUpdateApiView,
+                                      BookListApiView, BookRetrieveAPIView, BookUpdateApiView)
 
 from .apps import LibraryManagementConfig
-from library_management.views import BookCreateApiView, BookListApiView, AuthorCreateApiView, AuthorListApiView, \
-    BookRetrieveAPIView, BookUpdateApiView, AuthorRetrieveApiView, AuthorUpdateApiView, BookDestroyApiView, \
-    AuthorDestroyApiView, BookIssuanceCreateApiView, BookIssuanceListApiView, BookIssuanceUpdateApiView, \
-    BookIssuanceDestroyApiView, BookIssuanceRetrieveApiView
 
 app_name = LibraryManagementConfig.name
 
