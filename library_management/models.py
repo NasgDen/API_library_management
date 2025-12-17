@@ -1,6 +1,8 @@
 from django.db import models
+from django.db.models import ForeignKey
 
 from config import settings
+from users.models import User
 
 
 class Author(models.Model):
@@ -61,3 +63,28 @@ class Book(models.Model):
     class Meta:
         verbose_name = "Книга"
         verbose_name_plural = "Книги"
+
+class BookIssuance(models.Model):
+    """ Описание полей модели - Выдача книги """
+
+    book = ForeignKey(Book, on_delete=models.DO_NOTHING, verbose_name="Название Книги", help_text="Укажите название книги", related_name="book_issuance+")
+    user = ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name="Пользователь", help_text="Укажите пользователя", related_name="book_issuance+")
+    book_issued = models.BooleanField(default=True, verbose_name="Признак выдачи книги", help_text="Укажите признак выдачи книги")
+    book_returned = models.BooleanField(default=False, verbose_name="Признак возврата книги", help_text="Укажите признак возврата книги")
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.DO_NOTHING,
+        verbose_name="Владелец",
+        help_text="Укажите владельца",
+        related_name="book_issuance+"
+    )
+    date_create = models.DateField(auto_now_add=True, verbose_name="Дата создания записи о выдачи книги")
+    date_update = models.DateField(auto_now=True, verbose_name="Дата изменения записи о выдачи книги")
+    date_return = models.DateField(verbose_name="Дата возврата книги", blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.user} - {self.book}"
+
+    class Meta:
+        verbose_name = "Выдача книг"
+        verbose_name_plural = "Выдача книг"
