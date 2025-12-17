@@ -6,7 +6,8 @@ from rest_framework.urls import app_name
 from .apps import LibraryManagementConfig
 from library_management.views import BookCreateApiView, BookListApiView, AuthorCreateApiView, AuthorListApiView, \
     BookRetrieveAPIView, BookUpdateApiView, AuthorRetrieveApiView, AuthorUpdateApiView, BookDestroyApiView, \
-    AuthorDestroyApiView, BookIssuanceCreateApiView
+    AuthorDestroyApiView, BookIssuanceCreateApiView, BookIssuanceListApiView, BookIssuanceUpdateApiView, \
+    BookIssuanceDestroyApiView, BookIssuanceRetrieveApiView
 
 app_name = LibraryManagementConfig.name
 
@@ -22,4 +23,8 @@ urlpatterns = [
     path("author_update/<int:pk>/", AuthorUpdateApiView.as_view(), name="author_update"),
     path("author_delete/<int:pk>/", AuthorDestroyApiView.as_view(), name="author_delete"),
     path("book_issuance_create/", BookIssuanceCreateApiView.as_view(), name="book_issuance_create"),
+    path("book_issuance_list/", BookIssuanceListApiView.as_view(), name="book_issuance_list"),
+    path("book_issuance_retrieve/<int:pk>/", BookIssuanceRetrieveApiView.as_view(), name="book_issuance_retrieve"),
+    path("book_issuance_update/<int:pk>/", BookIssuanceUpdateApiView.as_view(), name="book_issuance_update"),
+    path("book_issuance_delete/<int:pk>/", BookIssuanceDestroyApiView.as_view(), name="book_issuance_delete"),
 ]

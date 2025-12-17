@@ -77,3 +77,30 @@ class BookIssuanceCreateApiView(CreateAPIView):
 
     queryset = BookIssuance.objects.all()
     serializer_class = BookIssuanceSerializer
+
+
+class BookIssuanceListApiView(ListAPIView):
+    """ Класс реализует просмотр списка всех выданных книг """
+
+    queryset = BookIssuance.objects.all()
+    serializer_class = BookIssuanceSerializer
+
+
+class BookIssuanceRetrieveApiView(RetrieveAPIView):
+    """ Класс реализует просмотр информации о выданной книге """
+
+    queryset = BookIssuance.objects.all()
+    serializer_class = BookIssuanceSerializer
+
+
+class BookIssuanceUpdateApiView(UpdateAPIView):
+    """ Класс реализует изменение информации о выданной книг """
+
+    queryset = BookIssuance.objects.all()
+    serializer_class = BookIssuanceSerializer
+
+
+class BookIssuanceDestroyApiView(DestroyAPIView):
+    """ Класс реализует изменение информации о выданной книг """
+
+    queryset = BookIssuance.objects.all()
