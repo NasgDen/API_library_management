@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .apps import UsersConfig
 from .views import UserCreateApiView, UserDestroyApiView, UserListApiView, UserRetrieveApiView, UserUpdateApiView
@@ -12,4 +13,6 @@ urlpatterns = [
     path("user_retrieve/<int:pk>/", UserRetrieveApiView.as_view(), name="user_retrieve"),
     path("user_update/<int:pk>/", UserUpdateApiView.as_view(), name="user_update"),
     path("user_delete/<int:pk>/", UserDestroyApiView.as_view(), name="user_delete"),
+    path('login/', TokenObtainPairView.as_view(), name='login'),
+    path('token_refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
