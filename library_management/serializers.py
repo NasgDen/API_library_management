@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from library_management.models import Book, Author
+from library_management.models import Book, Author, BookIssuance
 
 
 class BookSerializer(ModelSerializer):
@@ -16,4 +16,11 @@ class AuthorSerializer(ModelSerializer):
 
     class Meta:
         model = Author
+        fields = "__all__"
+
+class BookIssuanceSerializer(ModelSerializer):
+    """ Класс сериализатор для модели BookIssuance """
+
+    class Meta:
+        model = BookIssuance
         fields = "__all__"

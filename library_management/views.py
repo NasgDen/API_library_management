@@ -1,7 +1,7 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 
-from library_management.models import Book, Author
-from library_management.serializers import BookSerializer, AuthorSerializer
+from library_management.models import Book, Author, BookIssuance
+from library_management.serializers import BookSerializer, AuthorSerializer, BookIssuanceSerializer
 
 
 class BookCreateApiView(CreateAPIView):
@@ -70,3 +70,10 @@ class AuthorDestroyApiView(DestroyAPIView):
     """ Класс реализует удаление данных об авторе """
 
     queryset = Author.objects.all()
+
+
+class BookIssuanceCreateApiView(CreateAPIView):
+    """ Класс реализует создание информации о выдачи книги """
+
+    queryset = BookIssuance.objects.all()
+    serializer_class = BookIssuanceSerializer
