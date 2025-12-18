@@ -1,6 +1,8 @@
 from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView
+from rest_framework.permissions import IsAdminUser
 
 from library_management.models import Author, Book, BookIssuance
+from library_management.permissions import IsLibrarian, IsOwner
 from library_management.serializers import AuthorSerializer, BookIssuanceSerializer, BookSerializer
 
 
@@ -9,6 +11,7 @@ class BookCreateApiView(CreateAPIView):
 
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsLibrarian | IsAdminUser]
 
 
 class BookListApiView(ListAPIView):
@@ -30,12 +33,14 @@ class BookUpdateApiView(UpdateAPIView):
 
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsOwner | IsAdminUser]
 
 
 class BookDestroyApiView(DestroyAPIView):
     """Класс реализует удаление данных о книге"""
 
     queryset = Book.objects.all()
+    permission_classes = [IsOwner | IsAdminUser]
 
 
 class AuthorCreateApiView(CreateAPIView):
@@ -43,6 +48,7 @@ class AuthorCreateApiView(CreateAPIView):
 
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
+    permission_classes = [IsLibrarian | IsAdminUser]
 
 
 class AuthorListApiView(ListAPIView):
@@ -64,12 +70,14 @@ class AuthorUpdateApiView(UpdateAPIView):
 
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
+    permission_classes = [IsOwner | IsAdminUser]
 
 
 class AuthorDestroyApiView(DestroyAPIView):
     """Класс реализует удаление данных об авторе"""
 
     queryset = Author.objects.all()
+    permission_classes = [IsOwner | IsAdminUser]
 
 
 class BookIssuanceCreateApiView(CreateAPIView):
@@ -77,6 +85,7 @@ class BookIssuanceCreateApiView(CreateAPIView):
 
     queryset = BookIssuance.objects.all()
     serializer_class = BookIssuanceSerializer
+    permission_classes = [IsLibrarian | IsAdminUser]
 
 
 class BookIssuanceListApiView(ListAPIView):
@@ -84,6 +93,7 @@ class BookIssuanceListApiView(ListAPIView):
 
     queryset = BookIssuance.objects.all()
     serializer_class = BookIssuanceSerializer
+    permission_classes = [IsLibrarian | IsAdminUser]
 
 
 class BookIssuanceRetrieveApiView(RetrieveAPIView):
@@ -91,6 +101,7 @@ class BookIssuanceRetrieveApiView(RetrieveAPIView):
 
     queryset = BookIssuance.objects.all()
     serializer_class = BookIssuanceSerializer
+    permission_classes = [IsLibrarian | IsAdminUser]
 
 
 class BookIssuanceUpdateApiView(UpdateAPIView):
@@ -98,9 +109,11 @@ class BookIssuanceUpdateApiView(UpdateAPIView):
 
     queryset = BookIssuance.objects.all()
     serializer_class = BookIssuanceSerializer
+    permission_classes = [IsLibrarian | IsAdminUser]
 
 
 class BookIssuanceDestroyApiView(DestroyAPIView):
     """Класс реализует изменение информации о выданной книг"""
 
     queryset = BookIssuance.objects.all()
+    permission_classes = [IsLibrarian | IsAdminUser]
