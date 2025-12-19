@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     "library_management",
     "drf_api_logger",
     "rest_framework_simplejwt",
-    'django_filters',
+    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -109,15 +109,11 @@ AUTH_USER_MODEL = "users.User"
 DRF_API_LOGGER_DATABASE = os.getenv("DRF_API_LOGGER_DATABASE", False) == "True"
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
     ],
-    'DEFAULT_FILTER_BACKENDS': [
-        'django_filters.rest_framework.DjangoFilterBackend'
-    ]
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
 }
 
 SIMPLE_JWT = {

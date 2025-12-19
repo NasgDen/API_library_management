@@ -1,7 +1,7 @@
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView
 from rest_framework.permissions import IsAdminUser
-from rest_framework import filters
 
 from library_management.models import Author, Book, BookIssuance
 from library_management.permissions import IsLibrarian, IsOwner
@@ -103,8 +103,24 @@ class BookIssuanceListApiView(ListAPIView):
     serializer_class = BookIssuanceSerializer
     permission_classes = [IsLibrarian | IsAdminUser]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ["book__title", "user__last_name", "user__email", "book_issued", "book_returned", "date_create", "date_return"]
-    search_fields = ["book__title", "user__last_name", "user__email", "book_issued", "book_returned", "date_create", "date_return"]
+    filterset_fields = [
+        "book__title",
+        "user__last_name",
+        "user__email",
+        "book_issued",
+        "book_returned",
+        "date_create",
+        "date_return",
+    ]
+    search_fields = [
+        "book__title",
+        "user__last_name",
+        "user__email",
+        "book_issued",
+        "book_returned",
+        "date_create",
+        "date_return",
+    ]
 
 
 class BookIssuanceRetrieveApiView(RetrieveAPIView):
