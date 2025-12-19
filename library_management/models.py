@@ -18,7 +18,7 @@ class Author(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Владелец",
         help_text="Укажите владельца",
-        related_name="book+",
+        related_name="author+",
         blank=True,
         null=True,
     )
