@@ -7,9 +7,18 @@ from users.serializers import UserSerializer, UserBasicSerializer
 class AuthorSerializer(ModelSerializer):
     """Класс сериализатор для модели Author"""
 
+    owners = UserBasicSerializer(source="owner", many=False, read_only=True)
+
     class Meta:
         model = Author
-        fields = "__all__"
+        fields = (
+            "first_name",
+            "last_name",
+            "patronymic",
+            "owners",
+            "date_create",
+            "date_update"
+        )
 
 
 class BookSerializer(ModelSerializer):
