@@ -1,14 +1,6 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
 
 from library_management.models import Author, Book, BookIssuance
-
-
-class BookSerializer(ModelSerializer):
-    """Класс сериализатор для модели Book"""
-
-    class Meta:
-        model = Book
-        fields = "__all__"
 
 
 class AuthorSerializer(ModelSerializer):
@@ -17,6 +9,24 @@ class AuthorSerializer(ModelSerializer):
     class Meta:
         model = Author
         fields = "__all__"
+
+
+class BookSerializer(ModelSerializer):
+    """Класс сериализатор для модели Book"""
+
+    authors = AuthorSerializer(source="author", many=False, read_only=True)
+
+    class Meta:
+        model = Book
+        fields = (
+            "id",
+            "title",
+            "authors",
+            "year",
+            "owner",
+            "date_create",
+            "date_update"
+        )
 
 
 class BookIssuanceSerializer(ModelSerializer):

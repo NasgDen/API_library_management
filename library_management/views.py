@@ -1,3 +1,4 @@
+from django.template.context_processors import request
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView
@@ -14,6 +15,11 @@ class BookCreateApiView(CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [IsLibrarian | IsAdminUser]
+
+    def perform_create(self, serializer):
+        """ Функция записывает пользователя создавшего книгу """
+
+        serializer.save(owner=self.request.user)
 
 
 class BookListApiView(ListAPIView):
@@ -55,6 +61,11 @@ class AuthorCreateApiView(CreateAPIView):
     serializer_class = AuthorSerializer
     permission_classes = [IsLibrarian | IsAdminUser]
 
+    def perform_create(self, serializer):
+        """ Функция записывает пользователя создавшего автора """
+
+        serializer.save(owner=self.request.user)
+
 
 class AuthorListApiView(ListAPIView):
     """Класс реализует отображение всех авторов"""
@@ -94,6 +105,11 @@ class BookIssuanceCreateApiView(CreateAPIView):
     queryset = BookIssuance.objects.all()
     serializer_class = BookIssuanceSerializer
     permission_classes = [IsLibrarian | IsAdminUser]
+
+    def perform_create(self, serializer):
+        """ Функция записывает пользователя создавшего информацию о выдаче книги """
+
+        serializer.save(owner=self.request.user)
 
 
 class BookIssuanceListApiView(ListAPIView):
