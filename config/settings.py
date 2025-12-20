@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "drf_api_logger",
     "rest_framework_simplejwt",
     "django_filters",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -114,10 +115,18 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "UPDATE_LAST_LOGIN": True,
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "API сервис для управления библиотекой",
+    "DESCRIPTION": "API сервис для управления библиотекой",
+    "VERSION": '1.0.0',
+    "SERVE_INCLUDE_SCHEMA": False,
 }
