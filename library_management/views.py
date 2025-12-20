@@ -5,6 +5,7 @@ from rest_framework.generics import CreateAPIView, DestroyAPIView, ListAPIView, 
 from rest_framework.permissions import IsAdminUser
 
 from library_management.models import Author, Book, BookIssuance
+from library_management.paginations import BookPagination, AuthorPagination, BookIssuancePagination
 from library_management.permissions import IsLibrarian, IsOwner
 from library_management.serializers import AuthorSerializer, BookIssuanceSerializer, BookSerializer
 
@@ -27,6 +28,7 @@ class BookListApiView(ListAPIView):
 
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    pagination_class = BookPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ["title", "author__last_name", "year"]
     search_fields = ["title", "year", "author__last_name"]
@@ -72,6 +74,7 @@ class AuthorListApiView(ListAPIView):
 
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
+    pagination_class = AuthorPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ["first_name", "last_name", "patronymic"]
     search_fields = ["first_name", "last_name", "patronymic"]
@@ -117,6 +120,7 @@ class BookIssuanceListApiView(ListAPIView):
 
     queryset = BookIssuance.objects.all()
     serializer_class = BookIssuanceSerializer
+    pagination_class = BookIssuancePagination
     permission_classes = [IsLibrarian | IsAdminUser]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = [
