@@ -51,6 +51,12 @@ class UserUpdateApiView(UpdateAPIView):
     serializer_class = UserSerializer
     permission_classes = [IsUser]
 
+    def perform_update(self, serializer):
+        """ Функция хеширует пароль при его изменении """
+
+        user = serializer.save()
+        user.set_password(user.password)
+        user.save()
 
 class UserDestroyApiView(DestroyAPIView):
     """Класс реализует удаление данных пользователя"""
