@@ -158,6 +158,14 @@ class BookIssuanceUpdateApiView(UpdateAPIView):
     serializer_class = BookIssuanceSerializer
     permission_classes = [IsLibrarian | IsAdminUser]
 
+    def perform_update(self, serializer):
+        """ Функция проверяет изменение, если статус - книга сдана True, то стасус - книга выдана - False """
+
+        book_issuance = serializer.save()
+        if book_issuance.book_returned:
+            book_issuance.book_issued = False
+        book_issuance.save()
+
 
 class BookIssuanceDestroyApiView(DestroyAPIView):
     """Класс реализует изменение информации о выданной книг"""
