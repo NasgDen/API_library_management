@@ -1,10 +1,22 @@
 from django.urls import path
 
-from library_management.views import (AuthorCreateApiView, AuthorDestroyApiView, AuthorListApiView,
-                                      AuthorRetrieveApiView, AuthorUpdateApiView, BookCreateApiView,
-                                      BookDestroyApiView, BookIssuanceCreateApiView, BookIssuanceDestroyApiView,
-                                      BookIssuanceListApiView, BookIssuanceRetrieveApiView, BookIssuanceUpdateApiView,
-                                      BookListApiView, BookRetrieveAPIView, BookUpdateApiView)
+from library_management.views import (
+    AuthorCreateApiView,
+    AuthorDestroyApiView,
+    AuthorListApiView,
+    AuthorRetrieveApiView,
+    AuthorUpdateApiView,
+    BookCreateApiView,
+    BookDestroyApiView,
+    BookIssuanceCreateApiView,
+    BookIssuanceDestroyApiView,
+    BookIssuanceListApiView,
+    BookIssuanceRetrieveApiView,
+    BookIssuanceUpdateApiView,
+    BookListApiView,
+    BookRetrieveAPIView,
+    BookUpdateApiView,
+)
 
 from .apps import LibraryManagementConfig
 

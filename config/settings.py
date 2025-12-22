@@ -127,6 +127,6 @@ SIMPLE_JWT = {
 SPECTACULAR_SETTINGS = {
     "TITLE": "API сервис для управления библиотекой",
     "DESCRIPTION": "API сервис для управления библиотекой",
-    "VERSION": '1.0.0',
+    "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }

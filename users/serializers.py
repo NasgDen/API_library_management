@@ -10,18 +10,14 @@ class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
-        validators = [PhoneValidator(field="phone"),]
+        validators = [
+            PhoneValidator(field="phone"),
+        ]
 
 
 class UserBasicSerializer(ModelSerializer):
-    """ Класс сериализатора для модели User c базовыми полями """
+    """Класс сериализатора для модели User c базовыми полями"""
 
     class Meta:
         model = User
-        fields = (
-            "email",
-            "first_name",
-            "last_name",
-            "patronymic",
-            "phone"
-        )
+        fields = ("email", "first_name", "last_name", "patronymic", "phone")

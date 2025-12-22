@@ -11,17 +11,21 @@ class AuthorSerializer(ModelSerializer):
 
     class Meta:
         model = Author
-        fields = (
-            "first_name",
-            "last_name",
-            "patronymic",
-            "owners",
-            "date_create",
-            "date_update"
-        )
+        fields = ("first_name", "last_name", "patronymic", "owners", "date_create", "date_update")
 
 
 class BookSerializer(ModelSerializer):
+    """Класс сериализатор для модели Book"""
+
+    # authors = AuthorSerializer(source="author", many=False, read_only=True)
+    # owners = UserBasicSerializer(source="owner", many=False, read_only=True)
+
+    class Meta:
+        model = Book
+        fields = ("id", "title", "author", "year", "owner", "date_create", "date_update")
+
+
+class BookListSerializer(ModelSerializer):
     """Класс сериализатор для модели Book"""
 
     authors = AuthorSerializer(source="author", many=False, read_only=True)
@@ -29,15 +33,7 @@ class BookSerializer(ModelSerializer):
 
     class Meta:
         model = Book
-        fields = (
-            "id",
-            "title",
-            "authors",
-            "year",
-            "owners",
-            "date_create",
-            "date_update"
-        )
+        fields = ("id", "title", "authors", "year", "owners", "date_create", "date_update")
 
 
 class BookIssuanceSerializer(ModelSerializer):

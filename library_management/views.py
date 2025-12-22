@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAdminUser
 from library_management.models import Author, Book, BookIssuance
 from library_management.paginations import BookPagination, AuthorPagination, BookIssuancePagination
 from library_management.permissions import IsLibrarian, IsOwner
-from library_management.serializers import AuthorSerializer, BookIssuanceSerializer, BookSerializer
+from library_management.serializers import AuthorSerializer, BookIssuanceSerializer, BookSerializer, BookListSerializer
 
 
 class BookCreateApiView(CreateAPIView):
@@ -18,7 +18,7 @@ class BookCreateApiView(CreateAPIView):
     permission_classes = [IsLibrarian | IsAdminUser]
 
     def perform_create(self, serializer):
-        """ Функция записывает пользователя создавшего книгу """
+        """Функция записывает пользователя создавшего книгу"""
 
         serializer.save(owner=self.request.user)
 
@@ -27,7 +27,7 @@ class BookListApiView(ListAPIView):
     """Класс реализует отображение всех книг"""
 
     queryset = Book.objects.all()
-    serializer_class = BookSerializer
+    serializer_class = BookListSerializer
     pagination_class = BookPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ["title", "author__last_name", "year"]
@@ -38,7 +38,7 @@ class BookRetrieveAPIView(RetrieveAPIView):
     """Класс реализует отображение одной книги"""
 
     queryset = Book.objects.all()
-    serializer_class = BookSerializer
+    serializer_class = BookListSerializer
 
 
 class BookUpdateApiView(UpdateAPIView):
@@ -64,7 +64,7 @@ class AuthorCreateApiView(CreateAPIView):
     permission_classes = [IsLibrarian | IsAdminUser]
 
     def perform_create(self, serializer):
-        """ Функция записывает пользователя создавшего автора """
+        """Функция записывает пользователя создавшего автора"""
 
         serializer.save(owner=self.request.user)
 
@@ -110,7 +110,7 @@ class BookIssuanceCreateApiView(CreateAPIView):
     permission_classes = [IsLibrarian | IsAdminUser]
 
     def perform_create(self, serializer):
-        """ Функция записывает пользователя создавшего информацию о выдаче книги """
+        """Функция записывает пользователя создавшего информацию о выдаче книги"""
 
         serializer.save(owner=self.request.user)
 
@@ -159,7 +159,7 @@ class BookIssuanceUpdateApiView(UpdateAPIView):
     permission_classes = [IsLibrarian | IsAdminUser]
 
     def perform_update(self, serializer):
-        """ Функция проверяет изменение, если статус - книга сдана True, то стасус - книга выдана - False """
+        """Функция проверяет изменение, если статус - книга сдана True, то стасус - книга выдана - False"""
 
         book_issuance = serializer.save()
         if book_issuance.book_returned:

@@ -5,7 +5,7 @@ from rest_framework.serializers import ValidationError
 
 
 class PhoneValidator:
-    """ Класс реализует валидацию поля phone модели Users """
+    """Класс реализует валидацию поля phone модели Users"""
 
     def __init__(self, field):
         self.field = field
