@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.template.context_processors import request
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
@@ -164,6 +166,7 @@ class BookIssuanceUpdateApiView(UpdateAPIView):
         book_issuance = serializer.save()
         if book_issuance.book_returned:
             book_issuance.book_issued = False
+            book_issuance.date_return = str(date.today())
         book_issuance.save()
 
 
