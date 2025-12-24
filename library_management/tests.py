@@ -291,7 +291,7 @@ class BookIssuanceTestCase(APITestCase):
         self.assertEqual(data.get("book_issued"), False)
         self.assertEqual(data.get("book_returned"), True)
         self.assertEqual(data.get("date_return"), str(date.today()))
-#
+
     def test_book_issuance_update_put(self):
         """Тест - Изменение информации о выдачи книги. Put запрос"""
 
@@ -329,8 +329,8 @@ class BookIssuanceTestCase(APITestCase):
                     'id': 2,
                     'book_issued': True,
                     'book_returned': False,
-                    'date_create': '2025-12-23',
-                    'date_update': '2025-12-23',
+                    'date_create': str(date.today()),
+                    'date_update': str(date.today()),
                     'date_return': None,
                     'book': 2,
                     'user': 10,
