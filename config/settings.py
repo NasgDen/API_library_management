@@ -12,7 +12,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG", False) == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["django"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "django_filters",
     "drf_spectacular",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,13 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
+
+CORS_ALLOWED_ORIGINS = [
+    os.getenv("CORS_ALLOWED_ORIGINS"),
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    os.getenv("CSRF_TRUSTED_ORIGINS"),
+]
+
+CORS_ALLOW_ALL_ORIGINS = os.getenv("CORS_ALLOW_ALL_ORIGINS", False) == "True"
