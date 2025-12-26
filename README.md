@@ -7,6 +7,19 @@
 Django использует шаблон проектирования MTV (Model — Template — View).
 Django REST framework (DRF) — это библиотека для Python, которая является надстройкой над веб-фреймворком Django и предназначена для создания RESTful API (интерфейсов прикладного программирования). Она предоставляет набор мощных и гибких инструментов, таких как сериализаторы, наборы представлений и аутентификация, которые значительно упрощают разработку и развертывание веб-сервисов, позволяя внешним приложениям взаимодействовать с Django-приложением.
 
+### В проекте использованы следующие зависимости:
+1. Django v6.0 - [Официальный сайт](https://djangoproject.com), [GitHub](https://github.com/django/django)
+2. Django Rest Framework - [Официальный сайт](http://django-rest-framework.org), [GitHub](https://github.com/encode/django-rest-framework)
+3. Python-dotenv [GitHub](https://github.com/theskumar/python-dotenv)
+4. Psycopg2 - [Официальный сайт](https://psycopg.org), [GitHub](https://github.com/psycopg/psycopg2)
+5. Django Rest Framework simplejwt - [Документация](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/), [GitHub](https://github.com/jazzband/djangorestframework-simplejwt)
+6. Django-filter - [Документация](https://django-filter.readthedocs.io/en/stable/), [GitHub](https://github.com/carltongibson/django-filter/tree/main)
+7. Drf-spectacular - [Документация](https://drf-spectacular.readthedocs.io/en/latest/), [GitHub](https://github.com/tfranzel/drf-spectacular)
+8. Gunicorn - [Официальный сайт](https://gunicorn.org/), [GitGub](https://github.com/benoitc/gunicorn)
+9. Django-cors-headers - [GitHub](https://github.com/adamchainz/django-cors-headers)
+10. Pillow - [Документация](https://pillow.readthedocs.io/en/stable/), [GitHub](https://github.com/python-pillow/Pillow)
+11. Drf-api-logger - [GitHub](https://github.com/vishalanandl177/DRF-API-Logger)
+
 
 ## Описание Моделей
 Приложение library_management - модуль моделей models.py:
