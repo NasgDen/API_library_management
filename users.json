@@ -1,0 +1,130 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$cYP32Fk9283D4K2lUnQOms$a/UxV7JIFsPeClRVwlLo3obuPH2XSYbPvFEoa1DN9dQ=",
+        "last_login": "2025-12-22T14:54:11.086Z",
+        "is_superuser": true,
+        "username": "admin",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-12-14T16:19:37Z",
+        "email": "admin@mail.ru",
+        "first_name": "Денис",
+        "last_name": "Денисов",
+        "patronymic": null,
+        "phone": "811111111",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$RrCIq8XTPqKsuYKkvcLP8b$nH756jAo1lMyOCnXRNT2gYaA6zeI+VFL4Myo5UMNVkQ=",
+        "last_login": "2025-12-21T15:49:40.996Z",
+        "is_superuser": false,
+        "username": "user2",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-18T16:35:09Z",
+        "email": "user2@mail.ru",
+        "first_name": "Александ",
+        "last_name": "Васильев",
+        "patronymic": null,
+        "phone": "+76666666666",
+        "avatar": "",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$d0sgERemA7om5JyOoFbEQA$AwZr5HnZP8B6+L88yuUaGK44ylyFxXZp55ji0ElzJvg=",
+        "last_login": "2025-12-21T16:14:09.268Z",
+        "is_superuser": false,
+        "username": "user3",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-20T14:44:13Z",
+        "email": "user3@mail.ru",
+        "first_name": "Александ",
+        "last_name": "Иванов II",
+        "patronymic": null,
+        "phone": "+78888888888",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$TP1oq6THMTpPfW57EGg5lf$FaMmjJOP+BTJSp+c7Fq9Hd32txlCaWPBEGjGf/Ota9c=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "user4",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-20T14:51:52.083Z",
+        "email": "user4@mail.ru",
+        "first_name": "Петр",
+        "last_name": "Петров",
+        "patronymic": null,
+        "phone": "12345",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$HH6I8oPJHV28jXhxYcslSq$10JTZyCGiWBegRnv5L0r9QgNbtTXSq45PhBztGrj9ks=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "user5",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-20T14:55:17.807Z",
+        "email": "user5@mail.ru",
+        "first_name": "AA",
+        "last_name": "AA",
+        "patronymic": null,
+        "phone": "12345",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$vuRA8LYcKyO1r0jF6rWZBS$v/hJ7DwoCTvw9UhxfjWgfoGB5z2Df8xvyNwUjdL0+5A=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "user6",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-12-20T15:01:34.125Z",
+        "email": "user6@mail.ru",
+        "first_name": "BB",
+        "last_name": "BB",
+        "patronymic": null,
+        "phone": "+79999999999",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

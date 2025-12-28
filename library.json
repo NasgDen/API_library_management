@@ -1,0 +1,78 @@
+[
+{
+    "model": "library_management.author",
+    "pk": 2,
+    "fields": {
+        "first_name": "Александр",
+        "last_name": "Пушкин",
+        "patronymic": "Сергеевич",
+        "owner": 1,
+        "date_create": "2025-12-15",
+        "date_update": "2025-12-20"
+    }
+},
+{
+    "model": "library_management.book",
+    "pk": 2,
+    "fields": {
+        "title": "Капитанская дочка",
+        "author": 2,
+        "year": "2023-01-13",
+        "owner": null,
+        "date_create": "2025-12-15",
+        "date_update": "2025-12-15"
+    }
+},
+{
+    "model": "library_management.book",
+    "pk": 3,
+    "fields": {
+        "title": "Сказка о царе Солтане",
+        "author": 2,
+        "year": "2023-01-13",
+        "owner": null,
+        "date_create": "2025-12-18",
+        "date_update": "2025-12-18"
+    }
+},
+{
+    "model": "library_management.book",
+    "pk": 4,
+    "fields": {
+        "title": "Пророк",
+        "author": 2,
+        "year": "2025-03-10",
+        "owner": 1,
+        "date_create": "2025-12-20",
+        "date_update": "2025-12-20"
+    }
+},
+{
+    "model": "library_management.bookissuance",
+    "pk": 1,
+    "fields": {
+        "book": 2,
+        "user": 1,
+        "book_issued": false,
+        "book_returned": true,
+        "owner": 1,
+        "date_create": "2025-12-17",
+        "date_update": "2025-12-21",
+        "date_return": null
+    }
+},
+{
+    "model": "library_management.bookissuance",
+    "pk": 2,
+    "fields": {
+        "book": 3,
+        "user": 4,
+        "book_issued": true,
+        "book_returned": false,
+        "owner": 1,
+        "date_create": "2025-12-19",
+        "date_update": "2025-12-19",
+        "date_return": null
+    }
+}
+]
